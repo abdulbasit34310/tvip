@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "tvip",
+    "slug": "tvip",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "tvip"
+}
