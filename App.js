@@ -4,46 +4,44 @@ import { AntDesign, Entypo, EvilIcons, Feather, FontAwesome, FontAwesome5, FontA
 import { ActivityIndicator, Alert, Button, Dimensions, FlatList, ImageBackground, Image, ImageScrollView, KeyboardAvoidingView, Modal, Platform, ScrollView, StyleSheet, Switch, Text, TextInput, ToastAndroid, TouchableOpacity, View } from 'react-native';
 import { Checkbox, RadioButton } from 'react-native-paper';
 
-import Image1 from './src/images/series1.png';
-import MonitorImage from './src/images/monitor.png';
-import LockImage from './src/images/lock.png';
-import BackgroundImage from "./src/images/imagebackground.png";
 import SettingIcon from './src/images/settings.png';
-import SideBar from './src/components/sideBar';
-import SearchBar from './src/components/searchBar';
-import FilterBar from './src/components/filterBar';
-
-
+import FoxImage from "./src/images/fox.png";
+import TVImage from './src/images/tv.png';
+import SideBar2 from './src/components/sideBar2';
 
 export default function App() {
-  const [checked, setChecked] = React.useState('first');
   return (
-    <ImageBackground source={BackgroundImage} style={styles.container}>
+    <ImageBackground source={FoxImage} style={styles.container}>
       <StatusBar style="hide" />
-      <View style={{ flexDirection: 'row' }}>
-        <View style={{ width: '20%' }}>
-          <SideBar />
-        </View>
 
-        <View style={{ width: '80%', }}>
-          <SearchBar />
-          <FilterBar />
-
-          <View style={{ paddingHorizontal: 15 }}>
-            <View style={{ backgroundColor: '#B74424' }}>
-              <View style={{ padding: 14, flexDirection: 'row', alignItems: 'center' }}>
-                <Text style={{ color: '#FFFFFF', marginLeft: 9, fontSize: 16 }}>Latest Series</Text>
-              </View>
+      <View style={{ flexDirection: 'column' }}>
+        <View style={{ height: "80%" }}>
+          <View style={{ flexDirection: 'row' }}>
+            <View style={{ width: '20%' }}>
+              <SideBar2 />
             </View>
 
-            <ScrollView style={{ backgroundColor: '#4E4E4E80', height: '80%', padding: "5%" }}>
-              <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                <Image source={Image1} ></Image>
-              </View>
-            </ScrollView>
+            <View style={{ width: '80%', }}>
+            </View>
           </View>
         </View>
+
+        <View style={{ height: '20%', backgroundColor: 'rgba(0, 0, 0, 0.6)' }}>
+
+          <View style={styles.demoChannelStyle}>
+            <TouchableOpacity>
+              <Image source={TVImage} />
+            </TouchableOpacity>
+            <Text style={{ color: '#FCFCFC', fontSize: 16, marginLeft: 4 }}>Demo Channel</Text>
+          </View>
+
+          <View style={{}}>
+
+          </View>
+
+        </View>
       </View>
+
     </ImageBackground>
   );
 }
@@ -61,9 +59,8 @@ const styles = StyleSheet.create({
     bottom: '96.67%',
   },
   imageStyle: {
-    width: "23%",
-    height: 75,
-    margin: 5,
+    width: 100,
+    height: 100,
   },
   action: {
     flexDirection: "row",
@@ -73,12 +70,21 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  textStyle: {
-    color: '#FFFFFF',
-  },
   customDivider: {
     width: '100%',
     paddingVertical: 10,
 
-  }
+  }, titleStyle: {
+    color: '#FFFFFF',
+    alignSelf: 'center',
+    paddingVertical: 15
+  },
+  demoChannelStyle: {
+    backgroundColor: 'rgba(171, 66, 33, 0.55)',
+    width: '20%',
+    height: '100%',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });
