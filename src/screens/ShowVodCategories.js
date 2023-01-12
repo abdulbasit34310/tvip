@@ -4,13 +4,13 @@ import { AntDesign, Entypo, EvilIcons, Feather, FontAwesome, FontAwesome5, FontA
 import { ActivityIndicator, Alert, Button, Dimensions, FlatList, ImageBackground, Image, ImageScrollView, KeyboardAvoidingView, Modal, Platform, ScrollView, StyleSheet, Switch, Text, TextInput, ToastAndroid, TouchableOpacity, View } from 'react-native';
 import { RadioButton } from 'react-native-paper';
 
-import BackgroundImage from "./src/images/imagebackground.png";
-import SettingIcon from './src/images/settings.png';
-import BatmanImage from './src/images/bat.png';
-import BikeImage from './src/images/bike.png';
-import BridgeImage from './src/images/bridge.png';
+import BackgroundImage from "../images/imagebackground.png";
+import SettingIcon from '../images/settings.png';
+import BatmanImage from '../images/bat.png';
+import BikeImage from '../images/bike.png';
+import BridgeImage from '../images/bridge.png';
 
-import NavigationBar from './src/components/navigationBar';
+import NavigationBar from '../components/navigationBar';
 
 export default function ShowVodCategories() {
   const [checked, setChecked] = React.useState('first');

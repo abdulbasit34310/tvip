@@ -10,7 +10,7 @@ import BatmanImage from '../images/bat.png';
 import BikeImage from '../images/bike.png';
 import BridgeImage from '../images/bridge.png';
 
-import NavigationBar from './src/components/navigationBar';
+import NavigationBar from '../components/navigationBar';
 
 export default function ShowLiveCategories() {
   const [checked, setChecked] = React.useState('first');

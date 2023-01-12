@@ -145,3 +145,5 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     }
 });
+
+// <View> </View> <Text> </Text>
