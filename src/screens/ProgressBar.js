@@ -5,11 +5,11 @@ import { ActivityIndicator, Alert, Button, Dimensions, FlatList, ImageBackground
 import { Checkbox, RadioButton } from 'react-native-paper';
 import * as Progress from 'react-native-progress';
 
-import Main from './src/images/mainlogo.png';
-import ChannelImage from './src/images/channelpic.png';
-import BackgroundImage from "./src/images/imagebackground.png";
+import Main from '../images/mainlogo.png';
+import ChannelImage from '../images/channelpic.png';
+import BackgroundImage from "../images/imagebackground.png";
 
-export default function App() {
+export default function ProgressBar() {
   // const [index, setIndex] = React.useState();
   // React.useEffect(() => {
   //   const interval = setInterval(() => {
@@ -27,18 +27,12 @@ export default function App() {
         <Image source={Main} />
       </View>
 
-      <View style={{ position: 'absolute', width: '100%', top: 300, backgroundColor: 'rgba(23, 23, 23, 0.8)', height: 90, width: 675, alignSelf: 'center' }}>
-        <View style={{ backgroundColor: '#B3232B', paddingVertical: 5, alignItems: 'center' }}>
-          <Text style={styles.textStyle}>Trial...</Text>
+      <View style={{ paddingHorizontal: 33, position: 'absolute', top: 310, }}>
+        <View style={styles.loadingView}>
+          <Text style={styles.textStyle}>Loading...</Text>
+          <Text style={styles.textStyle}>81%</Text>
         </View>
-        <View style={{ flexDirection: 'row', alignSelf: 'center', alignItems: 'center' }}>
-          <Text style={{ color: 'white', marginRight: 33 }}>Using the following MAC Address  to upload your playlist</Text>
-          <Text style={{ backgroundColor: '#FF8845', color: 'white', paddingHorizontal: 34, paddingVertical: 4 }}>44:52:G6:9F:75:T9</Text>
-        </View>
-        <View style={{ flexDirection: 'row', alignSelf: 'center', alignItems: 'center' }}>
-          <Text style={{ color: '#F89942', alignSelf: 'center', }}>www. tvipsmartplayer.com</Text>
-          <Text style={{ backgroundColor: '#FF8845', color: 'white', paddingHorizontal: 15, paddingVertical: 4, }}>OK</Text>
-        </View>
+        <Progress.Bar progress={0.3} width={675} color={'#FF8845'} unfilledColor={'#101010'} borderColor={'#101010'} animated={true} />
       </View>
     </ImageBackground >
   );
