@@ -26,7 +26,7 @@ export default function sideBar({ navigation, route }) {
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.toStyle}>
-                    <MaterialCommunityIcons name={'home'} size={28} color={'#AB4221'} />
+                    <MaterialCommunityIcons name={'home'} size={22} color={'#AB4221'} />
                 </TouchableOpacity>
             </View>
         </View>

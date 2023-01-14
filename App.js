@@ -27,31 +27,91 @@ import Trial from './src/screens/Trial';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+  // const [index, setIndex] = React.useState();
+  // React.useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setIndex((index + 1) % (10 + 1));
+  //   }, 500);
+  //   return () => {
+  //     clearInterval(interval);
+  //   };
+  // }, [index]);
+
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Trial"
-        headerMode="none">
-        <Stack.Screen options={{ headerShown: false, }} name="Trial" component={Trial} />
-        <Stack.Screen options={{ headerShown: false, }} name="AccountInformation" component={AccountInformation} />
-        <Stack.Screen options={{ headerShown: false, }} name="Demo" component={Demo} />
-        <Stack.Screen options={{ headerShown: false, }} name="DemoChannel" component={DemoChannel} />
-        <Stack.Screen options={{ headerShown: false, }} name="Events" component={Events} />
-        <Stack.Screen options={{ headerShown: false, }} name="Favorite" component={Favorite} />
-        <Stack.Screen options={{ headerShown: false, }} name="LastScreen" component={LastScreen} />
-        <Stack.Screen options={{ headerShown: false, }} name="LiveTV" component={LiveTV} />
-        <Stack.Screen options={{ headerShown: false, }} name="Movies" component={Movies} />
-        <Stack.Screen options={{ headerShown: false, }} name="ParentalControl" component={ParentalControl} />
-        <Stack.Screen options={{ headerShown: false, }} name="ProgressBar" component={ProgressBar} />
-        <Stack.Screen options={{ headerShown: false, }} name="RecentlyViewed" component={RecentlyViewed} />
-        <Stack.Screen options={{ headerShown: false, }} name="Series" component={Series} />
-        <Stack.Screen options={{ headerShown: false, }} name="Settings" component={Settings} />
-        <Stack.Screen options={{ headerShown: false, }} name="ShowLiveCategories" component={ShowLiveCategories} />
-        <Stack.Screen options={{ headerShown: false, }} name="ShowSeriesCategories" component={ShowSeriesCategories} />
-        <Stack.Screen options={{ headerShown: false, }} name="ShowVodCategories" component={ShowVodCategories} />
-        <Stack.Screen options={{ headerShown: false, }} name="SortLiveChannel" component={SortLiveChannel} />
-        <Stack.Screen options={{ headerShown: false, }} name="SportsGuide" component={SportsGuide} />
-        <Stack.Screen options={{ headerShown: false, }} name="Theme" component={Theme} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <ImageBackground source={FoxImage} style={styles.container}>
+      <StatusBar style="hide" />
+
+      <View style={{ flexDirection: 'column' }}>
+        <View style={{ height: "80%" }}>
+          <View style={{ flexDirection: 'row' }}>
+            <View style={{ width: '20%' }}>
+              <SideBar2 />
+            </View>
+
+            <View style={{ width: '80%', }}>
+            </View>
+          </View>
+        </View>
+
+        <View style={{ height: '20%', backgroundColor: 'rgba(0, 0, 0, 0.6)' }}>
+
+          <View style={styles.demoChannelStyle}>
+            <TouchableOpacity>
+              <Image source={TVImage} />
+            </TouchableOpacity>
+            <Text style={{ color: '#FCFCFC', fontSize: 16, marginLeft: 4 }}>Demo Channel</Text>
+          </View>
+
+          <View style={{}}>
+
+          </View>
+
+        </View>
+      </View>
+
+    </ImageBackground>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'black',
+  },
+  iconStyle: {
+    position: 'absolute',
+    left: '4.42%',
+    right: '93.8%',
+    top: '1.93%',
+    bottom: '96.67%',
+  },
+  imageStyle: {
+    width: 100,
+    height: 100,
+  },
+  action: {
+    flexDirection: "row",
+    paddingBottom: 5,
+  },
+  ti: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  customDivider: {
+    width: '100%',
+    paddingVertical: 10,
+
+  }, titleStyle: {
+    color: '#FFFFFF',
+    alignSelf: 'center',
+    paddingVertical: 15
+  },
+  demoChannelStyle: {
+    backgroundColor: 'rgba(171, 66, 33, 0.55)',
+    width: '20%',
+    height: '100%',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});

@@ -8,7 +8,7 @@ export default function sideBar() {
             <View style={{ borderRadius: 12, backgroundColor: 'rgba(30, 30, 30, 0.8)', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center', paddingHorizontal: 18, paddingVertical: 5 }}>
                 <TextInput
                     style={styles.ti}
-                    placeholder="Search"
+                    placeholder="Search Series"
                     placeholderTextColor="#5E5E5E"
                 ></TextInput>
                 <Fontisto name={'search'} color={'#5E5E5E'} size={20} />
