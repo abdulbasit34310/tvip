@@ -44,6 +44,7 @@ export default function AccountInformation({ navigation, route }) {
 
                 </View>
             </View>
+            
         </ImageBackground>
     );
 }
