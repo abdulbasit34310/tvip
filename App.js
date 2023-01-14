@@ -1,59 +1,57 @@
-import { StatusBar } from 'expo-status-bar';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
-import { AntDesign, Entypo, EvilIcons, Feather, FontAwesome, FontAwesome5, FontAwesome5Brands, Fontisto, Foundation, Ionicons, MaterialCommunityIcons, MaterialIcons, Octicons, SimpleLineIcons, Zocial } from '@expo/vector-icons';
-import { ActivityIndicator, Alert, Button, Dimensions, FlatList, ImageBackground, Image, ImageScrollView, KeyboardAvoidingView, Modal, Platform, ScrollView, StyleSheet, Switch, Text, TextInput, ToastAndroid, TouchableOpacity, View } from 'react-native';
-import { Checkbox, RadioButton } from 'react-native-paper';
-import * as Progress from 'react-native-progress';
+import AccountInformation from './src/screens/AccountInformation';
+import Demo from './src/screens/Demo';
+import DemoChannel from './src/screens/DemoChannel';
+import Events from './src/screens/Events';
+import Favorite from './src/screens/Favorite';
+import LastScreen from './src/screens/LastScreen';
+import LiveTV from './src/screens/LiveTV';
+import Movies from './src/screens/Movies';
+import ParentalControl from './src/screens/ParentalControl';
+import ProgressBar from './src/screens/ProgressBar';
+import RecentlyViewed from './src/screens/RecentlyViewed';
+import Series from './src/screens/Series';
+import Settings from './src/screens/Settings';
+import ShowLiveCategories from './src/screens/ShowLiveCategories';
+import ShowSeriesCategories from './src/screens/ShowSeriesCategories';
+import ShowVodCategories from './src/screens/ShowVodCategories';
+import SortLiveChannel from './src/screens/SortLiveChannel';
+import SportsGuide from './src/screens/SportsGuide';
+import Theme from './src/screens/Theme';
+import Trial from './src/screens/Trial';
 
-import Main from './src/images/mainlogo.png';
-import ChannelImage from './src/images/channelpic.png';
-import BackgroundImage from "./src/images/imagebackground.png";
+
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
-  // const [index, setIndex] = React.useState();
-  // React.useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setIndex((index + 1) % (10 + 1));
-  //   }, 500);
-  //   return () => {
-  //     clearInterval(interval);
-  //   };
-  // }, [index]);
-
   return (
-    <ImageBackground source={BackgroundImage} style={styles.container}>
-      <StatusBar hidden />
-      <View style={{ backgroundColor: 'rgba(204, 204, 204, 0.3)', alignItems: 'center', width: 381, padding: 10, position: 'absolute', left: 175, top: 85 }}>
-        <Image source={Main} />
-      </View>
-
-      <View style={{ position: 'absolute', width: '100%', top: 300, backgroundColor: 'rgba(23, 23, 23, 0.8)', height: 90, width: 675, alignSelf: 'center' }}>
-        <View style={{ backgroundColor: '#B3232B', paddingVertical: 5, alignItems: 'center' }}>
-          <Text style={styles.textStyle}>Trial...</Text>
-        </View>
-        <View style={{ flexDirection: 'row', alignSelf: 'center', alignItems: 'center' }}>
-          <Text style={{ color: 'white', marginRight: 33 }}>Using the following MAC Address  to upload your playlist</Text>
-          <Text style={{ backgroundColor: '#FF8845', color: 'white', paddingHorizontal: 34, paddingVertical: 4 }}>44:52:G6:9F:75:T9</Text>
-        </View>
-        <View style={{ flexDirection: 'row', alignSelf: 'center', alignItems: 'center' }}>
-          <Text style={{ color: '#F89942', alignSelf: 'center', }}>www. tvipsmartplayer.com</Text>
-          <Text style={{ backgroundColor: '#FF8845', color: 'white', paddingHorizontal: 15, paddingVertical: 4, }}>OK</Text>
-        </View>
-      </View>
-    </ImageBackground >
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Trial"
+        headerMode="none">
+        <Stack.Screen options={{ headerShown: false, }} name="Trial" component={Trial} />
+        <Stack.Screen options={{ headerShown: false, }} name="AccountInformation" component={AccountInformation} />
+        <Stack.Screen options={{ headerShown: false, }} name="Demo" component={Demo} />
+        <Stack.Screen options={{ headerShown: false, }} name="DemoChannel" component={DemoChannel} />
+        <Stack.Screen options={{ headerShown: false, }} name="Events" component={Events} />
+        <Stack.Screen options={{ headerShown: false, }} name="Favorite" component={Favorite} />
+        <Stack.Screen options={{ headerShown: false, }} name="LastScreen" component={LastScreen} />
+        <Stack.Screen options={{ headerShown: false, }} name="LiveTV" component={LiveTV} />
+        <Stack.Screen options={{ headerShown: false, }} name="Movies" component={Movies} />
+        <Stack.Screen options={{ headerShown: false, }} name="ParentalControl" component={ParentalControl} />
+        <Stack.Screen options={{ headerShown: false, }} name="ProgressBar" component={ProgressBar} />
+        <Stack.Screen options={{ headerShown: false, }} name="RecentlyViewed" component={RecentlyViewed} />
+        <Stack.Screen options={{ headerShown: false, }} name="Series" component={Series} />
+        <Stack.Screen options={{ headerShown: false, }} name="Settings" component={Settings} />
+        <Stack.Screen options={{ headerShown: false, }} name="ShowLiveCategories" component={ShowLiveCategories} />
+        <Stack.Screen options={{ headerShown: false, }} name="ShowSeriesCategories" component={ShowSeriesCategories} />
+        <Stack.Screen options={{ headerShown: false, }} name="ShowVodCategories" component={ShowVodCategories} />
+        <Stack.Screen options={{ headerShown: false, }} name="SortLiveChannel" component={SortLiveChannel} />
+        <Stack.Screen options={{ headerShown: false, }} name="SportsGuide" component={SportsGuide} />
+        <Stack.Screen options={{ headerShown: false, }} name="Theme" component={Theme} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'black',
-  }, textStyle: {
-    color: '#FFFFFF',
-  }, loadingView: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 10,
-    paddingHorizontal: 10,
-  },
-});

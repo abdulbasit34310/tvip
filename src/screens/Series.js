@@ -1,22 +1,20 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { AntDesign, Entypo, EvilIcons, Feather, FontAwesome, FontAwesome5, FontAwesome5Brands, Fontisto, Foundation, Ionicons, MaterialCommunityIcons, MaterialIcons, Octicons, SimpleLineIcons, Zocial } from '@expo/vector-icons';
-import { ActivityIndicator, Alert, Button, Dimensions, FlatList, ImageBackground, Image, ImageScrollView, KeyboardAvoidingView, Modal, Platform, ScrollView, StyleSheet, Switch, Text, TextInput, ToastAndroid, TouchableOpacity, View } from 'react-native';
-import { Checkbox, RadioButton } from 'react-native-paper';
+import { Image, ImageBackground, ScrollView, StyleSheet, Text, View } from 'react-native';
 
+import FilterBar from '../components/filterBar';
+import SearchBar from '../components/searchBar';
+import SideBar from '../components/sideBar';
 import EliteImage from '../images/elite.png';
 import BackgroundImage from "../images/imagebackground.png";
-import SideBar from '../components/sideBar';
-import SearchBar from '../components/searchBar';
-import FilterBar from '../components/filterBar';
 
-export default function Series() {
+export default function Series({ navigation, route }) {
   return (
     <ImageBackground source={BackgroundImage} style={styles.container}>
       <StatusBar style="hide" />
       <View style={{ flexDirection: 'row' }}>
         <View style={{ width: '20%' }}>
-          <SideBar />
+          <SideBar navigation={navigation} />
         </View>
 
         <View style={{ width: '80%', }}>

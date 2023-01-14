@@ -1,24 +1,20 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { AntDesign, Entypo, EvilIcons, Feather, FontAwesome, FontAwesome5, FontAwesome5Brands, Fontisto, Foundation, Ionicons, MaterialCommunityIcons, MaterialIcons, Octicons, SimpleLineIcons, Zocial } from '@expo/vector-icons';
-import { ActivityIndicator, Alert, Button, Dimensions, FlatList, ImageBackground, Image, ImageScrollView, KeyboardAvoidingView, Modal, Platform, ScrollView, StyleSheet, Switch, Text, TextInput, ToastAndroid, TouchableOpacity, View } from 'react-native';
-import { Checkbox, RadioButton } from 'react-native-paper';
+import { Image, ImageBackground, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
+import SideBar from '../components/sideBar';
 import BaseballImage from '../images/baseball.png';
-import MonitorImage from '../images/monitor.png';
-import LockImage from '../images/lock.png';
 import BackgroundImage from "../images/imagebackground.png";
 import SettingIcon from '../images/settings.png';
-import SideBar from '../components/sideBar';
 
-export default function SportsGuide() {
+export default function SportsGuide({ navigation, route }) {
   const [checked, setChecked] = React.useState('first');
   return (
     <ImageBackground source={BackgroundImage} style={styles.container}>
       <StatusBar style="hide" />
       <View style={{ flexDirection: 'row' }}>
         <View style={{ width: '20%' }}>
-          <SideBar />
+          <SideBar navigation={navigation} />
         </View>
 
         <View style={{ width: '80%', paddingHorizontal: 15, paddingVertical: 20, justifyContent: 'center' }}>

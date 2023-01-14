@@ -1,15 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { AntDesign, Entypo, EvilIcons, Feather, FontAwesome, FontAwesome5, FontAwesome5Brands, Fontisto, Foundation, Ionicons, MaterialCommunityIcons, MaterialIcons, Octicons, SimpleLineIcons, Zocial } from '@expo/vector-icons';
-import { ActivityIndicator, Alert, Button, Dimensions, FlatList, ImageBackground, Image, ImageScrollView, KeyboardAvoidingView, Modal, Platform, ScrollView, StyleSheet, Switch, Text, TextInput, ToastAndroid, TouchableOpacity, View } from 'react-native';
-import { Checkbox, RadioButton } from 'react-native-paper';
+import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
 import * as Progress from 'react-native-progress';
 
-import Main from '../images/mainlogo.png';
-import ChannelImage from '../images/channelpic.png';
 import BackgroundImage from "../images/imagebackground.png";
+import Main from '../images/mainlogo.png';
 
-export default function ProgressBar() {
+export default function ProgressBar({ navigation, route }) {
   // const [index, setIndex] = React.useState();
   // React.useEffect(() => {
   //   const interval = setInterval(() => {

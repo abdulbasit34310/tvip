@@ -1,22 +1,16 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { AntDesign, Entypo, EvilIcons, Feather, FontAwesome, FontAwesome5, FontAwesome5Brands, Fontisto, Foundation, Ionicons, MaterialCommunityIcons, MaterialIcons, Octicons, SimpleLineIcons, Zocial } from '@expo/vector-icons';
-import { ActivityIndicator, Alert, Button, Dimensions, FlatList, ImageBackground, Image, ImageScrollView, KeyboardAvoidingView, Modal, Platform, ScrollView, StyleSheet, Switch, Text, TextInput, ToastAndroid, TouchableOpacity, View } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-import TVIP from '../images/tvip_logo.png';
-import BatmanImage from '../images/bat.png';
-import BikeImage from '../images/bike.png';
-import BridgeImage from '../images/bridge.png';
 import BaseballImage from '../images/baseball.png';
 import MovieImage from '../images/movie.png';
 import SeriesImage from '../images/reel.png';
 import RotateRightImage from '../images/rr.png';
-import TVImage from '../images/tv.png';
-import BackgroundImage from "../images/imagebackground.png";
 import SettingIcon from '../images/settings.png';
+import TVImage from '../images/tv.png';
+import TVIP from '../images/tvip_logo.png';
 
 
-export default function sideBar() {
+export default function sideBar({ navigation, route }) {
     return (
         <View style={{ flexDirection: 'column' }}>
             <View style={{ height: '20%' }}>
@@ -28,28 +22,28 @@ export default function sideBar() {
                     justifyContent: 'center',
                     alignItems: 'center',
                 }}>
-                    <TouchableOpacity style={styles.customDivider}><Image source={TVImage}></Image><Text style={styles.textStyle}>Live TV</Text></TouchableOpacity>
+                    <TouchableOpacity onPress={navigation.navigate('LiveTV')} style={styles.customDivider}><Image source={TVImage}></Image><Text style={styles.textStyle}>Live TV</Text></TouchableOpacity>
                 </View>
                 <View style={{
                     justifyContent: 'center',
                     alignItems: 'center',
                 }}>
-                    <TouchableOpacity style={styles.customDivider}><Image source={MovieImage}></Image><Text style={styles.textStyle}>Movies</Text></TouchableOpacity></View>
+                    <TouchableOpacity onPress={navigation.navigate('Movies')} style={styles.customDivider}><Image source={MovieImage}></Image><Text style={styles.textStyle}>Movies</Text></TouchableOpacity></View>
                 <View style={{
                     justifyContent: 'center',
                     alignItems: 'center',
                 }}>
-                    <TouchableOpacity style={styles.customDivider}><Image source={SeriesImage}></Image><Text style={styles.textStyle}>Series</Text></TouchableOpacity></View>
+                    <TouchableOpacity onPress={navigation.navigate('Series')} style={styles.customDivider}><Image source={SeriesImage}></Image><Text style={styles.textStyle}>Series</Text></TouchableOpacity></View>
                 <View style={{
                     justifyContent: 'center',
                     alignItems: 'center',
                 }}>
-                    <TouchableOpacity style={styles.customDivider}><Image source={BaseballImage}></Image><Text style={styles.textStyle}>Sports Guide</Text></TouchableOpacity></View>
+                    <TouchableOpacity onPress={navigation.navigate('SportsGuide')} style={styles.customDivider}><Image source={BaseballImage}></Image><Text style={styles.textStyle}>Sports Guide</Text></TouchableOpacity></View>
                 <View style={{
                     justifyContent: 'center',
                     alignItems: 'center',
                 }}>
-                    <TouchableOpacity style={styles.customDivider}><Image source={SettingIcon}></Image><Text style={styles.textStyle}>Settings</Text></TouchableOpacity></View>
+                    <TouchableOpacity onPress={navigation.navigate('Settings')} style={styles.customDivider}><Image source={SettingIcon}></Image><Text style={styles.textStyle}>Settings</Text></TouchableOpacity></View>
                 <View style={{
                     justifyContent: 'center',
                     alignItems: 'center',

@@ -1,24 +1,23 @@
+import { AntDesign, Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { AntDesign, Entypo, EvilIcons, Feather, FontAwesome, FontAwesome5, FontAwesome5Brands, Fontisto, Foundation, Ionicons, MaterialCommunityIcons, MaterialIcons, Octicons, SimpleLineIcons, Zocial } from '@expo/vector-icons';
-import { ActivityIndicator, Alert, Button, Dimensions, FlatList, ImageBackground, Image, ImageScrollView, KeyboardAvoidingView, Modal, Platform, ScrollView, StyleSheet, Switch, Text, TextInput, ToastAndroid, TouchableOpacity, View } from 'react-native';
-import { Checkbox, RadioButton } from 'react-native-paper';
+import { Image, ImageBackground, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-import PlayerImage from '../images/player.png';
-import MonitorImage from '../images/monitor.png';
-import LockImage from '../images/lock.png';
-import BackgroundImage from "../images/imagebackground.png";
-import SettingIcon from '../images/settings.png';
 import SideBar from '../components/sideBar';
+import BackgroundImage from "../images/imagebackground.png";
+import LockImage from '../images/lock.png';
+import MonitorImage from '../images/monitor.png';
+import PlayerImage from '../images/player.png';
+import SettingIcon from '../images/settings.png';
 
-export default function Settings() {
+export default function Settings({ navigation, route }) {
     const [checked, setChecked] = React.useState('first');
     return (
         <ImageBackground source={BackgroundImage} style={styles.container}>
             <StatusBar style="hide" />
             <View style={{ flexDirection: 'row' }}>
                 <View style={{ width: '20%' }}>
-                    <SideBar />
+                    <SideBar navigation={navigation} />
                 </View>
 
                 <View style={{ width: '80%', paddingHorizontal: 15, paddingVertical: 20, justifyContent: 'center' }}>
@@ -34,14 +33,14 @@ export default function Settings() {
 
                         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                             <View style={{ width: '50%', }}>
-                                <TouchableOpacity style={styles.customDivider}>
+                                <TouchableOpacity style={styles.customDivider} onPress={navigation.navigate('AccountInformation')}>
                                     <MaterialCommunityIcons name={'account-circle-outline'} color={'white'} size={26} />
                                     <Text style={styles.textStyle}>Account Information</Text>
                                 </TouchableOpacity>
                             </View>
 
                             <View style={{ width: '50%' }}>
-                                <TouchableOpacity style={styles.customDivider}>
+                                <TouchableOpacity style={styles.customDivider} onPress={navigation.navigate('ShowSeriesCategories')}>
                                     <Image source={MonitorImage}></Image>
                                     <Text style={styles.textStyle}>Show Series Catagories</Text>
                                 </TouchableOpacity>
@@ -50,14 +49,14 @@ export default function Settings() {
 
                         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                             <View style={{ width: '50%' }}>
-                                <TouchableOpacity style={styles.customDivider}>
+                                <TouchableOpacity style={styles.customDivider} onPress={navigation.navigate('ParentalControl')}>
                                     <Image source={LockImage}></Image>
                                     <Text style={styles.textStyle}>Parental Control</Text>
                                 </TouchableOpacity>
                             </View>
 
                             <View style={{ width: '50%' }}>
-                                <TouchableOpacity style={styles.customDivider}>
+                                <TouchableOpacity style={styles.customDivider} onPress={navigation.navigate('Theme')}>
                                     <AntDesign name={'areachart'} color={'white'} size={23} />
                                     <Text style={styles.textStyle}>Theme</Text>
                                 </TouchableOpacity>
@@ -67,7 +66,7 @@ export default function Settings() {
 
                         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                             <View style={{ width: '50%' }}>
-                                <TouchableOpacity style={styles.customDivider}>
+                                <TouchableOpacity style={styles.customDivider} onPress={navigation.navigate('ShowLiveCategories')}>
                                     <Image source={PlayerImage}></Image>
                                     <Text style={styles.textStyle}>Show Live Categories</Text>
                                 </TouchableOpacity>
@@ -83,13 +82,13 @@ export default function Settings() {
 
                         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                             <View style={{ width: '50%' }}>
-                                <TouchableOpacity style={styles.customDivider}>
+                                <TouchableOpacity style={styles.customDivider} onPress={navigation.navigate('ShowVodCategories')}>
                                     <MaterialCommunityIcons name={'filmstrip'} color={'white'} size={24} />
                                     <Text style={styles.textStyle}>Show Vod Categories</Text>
                                 </TouchableOpacity>
                             </View>
                             <View style={{ width: '50%' }}>
-                                <TouchableOpacity style={styles.customDivider}>
+                                <TouchableOpacity style={styles.customDivider} onPress={navigation.navigate('ShowLiveChannel')}>
                                     <MaterialCommunityIcons name={'sort-alphabetical-ascending'} color={'white'} size={24} />
                                     <Text style={styles.textStyle}>Show Live Channel</Text>
                                 </TouchableOpacity>

@@ -1,14 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { AntDesign, Entypo, EvilIcons, Feather, FontAwesome, FontAwesome5, FontAwesome5Brands, Fontisto, Foundation, Ionicons, MaterialCommunityIcons, MaterialIcons, Octicons, SimpleLineIcons, Zocial } from '@expo/vector-icons';
-import { ActivityIndicator, Alert, Button, Dimensions, FlatList, ImageBackground, Image, ImageScrollView, KeyboardAvoidingView, Modal, Platform, ScrollView, StyleSheet, Switch, Text, TextInput, ToastAndroid, TouchableOpacity, View } from 'react-native';
+import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
 import { RadioButton } from 'react-native-paper';
 
+import NavigationBar from '../components/navigationBar';
 import BackgroundImage from "../images/imagebackground.png";
 import SettingIcon from '../images/settings.png';
-import NavigationBar from '../components/navigationBar';
 
-export default function SortLiveChannel() {
+export default function SortLiveChannel({ navigation, route }) {
     const [checked, setChecked] = React.useState('first');
     return (
         <ImageBackground source={BackgroundImage} style={styles.container}>
@@ -20,7 +19,7 @@ export default function SortLiveChannel() {
                     <View style={{ backgroundColor: '#B74424' }}>
                         <View style={{ padding: 14, flexDirection: 'row', alignItems: 'center' }}>
                             <Image source={SettingIcon}></Image>
-                            <Text style={{ color: '#FFFFFF', marginLeft: 9, fontSize: 16 }}>Settings > Sort Live Channel</Text>
+                            <Text style={{ color: '#FFFFFF', marginLeft: 9, fontSize: 16 }}>Settings  Sort Live Channel</Text>
                         </View>
                     </View>
 

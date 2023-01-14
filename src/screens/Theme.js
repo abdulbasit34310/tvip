@@ -1,18 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { AntDesign, Entypo, EvilIcons, Feather, FontAwesome, FontAwesome5, FontAwesome5Brands, Fontisto, Foundation, Ionicons, MaterialCommunityIcons, MaterialIcons, Octicons, SimpleLineIcons, Zocial } from '@expo/vector-icons';
-import { ActivityIndicator, Alert, Button, Dimensions, FlatList, ImageBackground, Image, ImageScrollView, KeyboardAvoidingView, Modal, Platform, ScrollView, StyleSheet, Switch, Text, TextInput, ToastAndroid, TouchableOpacity, View } from 'react-native';
+import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
 import { RadioButton } from 'react-native-paper';
 
 import BackgroundImage from '../images/imagebackground.png';
 import SettingIcon from '../images/settings.png';
-import BatmanImage from '../images/bat.png';
-import BikeImage from '../images/bike.png';
-import BridgeImage from '../images/bridge.png';
 
 import NavigationBar from '../components/navigationBar';
 
-export default function Theme() {
+export default function Theme({ navigation, route }) {
     const [checked, setChecked] = React.useState('first');
     return (
         <ImageBackground source={BackgroundImage} style={styles.container}>

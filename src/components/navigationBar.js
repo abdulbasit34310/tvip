@@ -1,8 +1,7 @@
-import { StatusBar } from 'expo-status-bar';
+import { Feather } from '@expo/vector-icons';
 import React from 'react';
-import { AntDesign, Entypo, EvilIcons, Feather, FontAwesome, FontAwesome5, FontAwesome5Brands, Fontisto, Foundation, Ionicons, MaterialCommunityIcons, MaterialIcons, Octicons, SimpleLineIcons, Zocial } from '@expo/vector-icons';
-import { ActivityIndicator, Alert, Button, Dimensions, FlatList, ImageBackground, Image, ImageScrollView, KeyboardAvoidingView, Modal, Platform, ScrollView, StyleSheet, Switch, Text, TextInput, ToastAndroid, TouchableOpacity, View } from 'react-native';
-export default function navigationBar() {
+import { Text, TouchableOpacity, View } from 'react-native';
+export default function navigationBar({ navigation, route }) {
     return (
         <View style={{ padding: 10, flexDirection: 'row', alignItems: 'center', }}>
             <TouchableOpacity>

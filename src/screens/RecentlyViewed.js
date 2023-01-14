@@ -1,15 +1,15 @@
+import { Octicons } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useRef, useState } from 'react';
-import { AntDesign, Entypo, EvilIcons, Feather, FontAwesome, FontAwesome5, FontAwesome5Brands, Fontisto, Foundation, Ionicons, MaterialCommunityIcons, MaterialIcons, Octicons, SimpleLineIcons, Zocial } from '@expo/vector-icons';
-import { ActivityIndicator, Animated, Alert, Button, Dimensions, FlatList, ImageBackground, Image, ImageScrollView, KeyboardAvoidingView, Modal, Platform, ScrollView, StyleSheet, Switch, Text, TextInput, ToastAndroid, TouchableOpacity, View } from 'react-native';
+import { Animated, Image, ImageBackground, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-import BackgroundImage from "../images/imagebackground.png";
-import Heart from '../images/heart.png';
-import AnimalPlanet from '../images/animalplanet.png';
-import SideBar2 from '../components/sideBar2';
 import SearchBar from '../components/searchBar';
+import SideBar2 from '../components/sideBar2';
+import AnimalPlanet from '../images/animalplanet.png';
+import Heart from '../images/heart.png';
+import BackgroundImage from "../images/imagebackground.png";
 
-export default function RecentlyViewed() {
+export default function RecentlyViewed({ navigation, route }) {
     const [isHearted, setIsHearted] = useState(false);
     const lastTap = useRef(0);
     const isAnimating = useRef(false);
@@ -54,7 +54,7 @@ export default function RecentlyViewed() {
             <View>
                 <View style={{ flexDirection: 'row' }}>
                     <View style={{ width: '20%' }}>
-                        <SideBar2 />
+                        <SideBar2 navigation={navigation} />
                     </View>
 
                     <View style={{ width: '80%', }}>

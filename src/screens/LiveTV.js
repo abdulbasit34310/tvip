@@ -1,23 +1,21 @@
+import { Ionicons } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { AntDesign, Entypo, EvilIcons, Feather, FontAwesome, FontAwesome5, FontAwesome5Brands, Fontisto, Foundation, Ionicons, MaterialCommunityIcons, MaterialIcons, Octicons, SimpleLineIcons, Zocial } from '@expo/vector-icons';
-import { ActivityIndicator, Alert, Button, Dimensions, FlatList, ImageBackground, Image, ImageScrollView, KeyboardAvoidingView, Modal, Platform, ScrollView, StyleSheet, Switch, Text, TextInput, ToastAndroid, TouchableOpacity, View } from 'react-native';
-import { Checkbox, RadioButton } from 'react-native-paper';
+import { Image, ImageBackground, ScrollView, StyleSheet, Text, View } from 'react-native';
 
-import EliteImage from '../images/elite.png';
-import ChannelImage from '../images/channelpic.png';
-import BackgroundImage from "../images/imagebackground.png";
-import SideBar from '../components/sideBar';
 import SearchBar from '../components/searchBar';
-import FilterBar from '../components/filterBar';
+import SideBar from '../components/sideBar';
+import ChannelImage from '../images/channelpic.png';
+import EliteImage from '../images/elite.png';
+import BackgroundImage from "../images/imagebackground.png";
 
-export default function LiveTV() {
+export default function LiveTV({ navigation, route }) {
   return (
     <ImageBackground source={BackgroundImage} style={styles.container}>
       <StatusBar style="hide" />
       <View style={{ flexDirection: 'row' }}>
         <View style={{ width: '20%' }}>
-          <SideBar />
+          <SideBar navigation={navigation} />
         </View>
 
         <View style={{ width: '80%', }}>

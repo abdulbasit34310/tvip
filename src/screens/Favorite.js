@@ -9,7 +9,7 @@ import AnimalPlanet from '../images/animalplanet.png';
 import Heart from '../images/heart.png';
 import BackgroundImage from "../images/imagebackground.png";
 
-export default function Demo({ navigation, route }) {
+export default function Favorite({ navigation, route }) {
     const [isHearted, setIsHearted] = useState(false);
     const lastTap = useRef(0);
     const isAnimating = useRef(false);

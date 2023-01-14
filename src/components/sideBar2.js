@@ -1,23 +1,11 @@
-import { StatusBar } from 'expo-status-bar';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import React from 'react';
-import { AntDesign, Entypo, EvilIcons, Feather, FontAwesome, FontAwesome5, FontAwesome5Brands, Fontisto, Foundation, Ionicons, MaterialCommunityIcons, MaterialIcons, Octicons, SimpleLineIcons, Zocial } from '@expo/vector-icons';
-import { ActivityIndicator, Alert, Button, Dimensions, FlatList, ImageBackground, Image, ImageScrollView, KeyboardAvoidingView, Modal, Platform, ScrollView, StyleSheet, Switch, Text, TextInput, ToastAndroid, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-import TVIP from '../images/tvip_logo.png';
-import BatmanImage from '../images/bat.png';
-import BikeImage from '../images/bike.png';
-import BridgeImage from '../images/bridge.png';
-import BaseballImage from '../images/baseball.png';
-import MovieImage from '../images/movie.png';
-import SeriesImage from '../images/reel.png';
-import RotateRightImage from '../images/rr.png';
-import TVImage from '../images/tv.png';
-import BackgroundImage from "../images/imagebackground.png";
-import SettingIcon from '../images/settings.png';
 
 import NavigationBar from './navigationBar';
 
-export default function sideBar() {
+export default function sideBar({ navigation, route }) {
     return (
         <View>
             <View style={{ height: '15%', backgroundColor: 'rgba(0, 0, 0, 0.7)' }}>
@@ -25,15 +13,15 @@ export default function sideBar() {
             </View>
 
             <View style={{ backgroundColor: 'rgba(21, 21, 21, 0.5)', height: '85%', width: '100%', paddingHorizontal: 10, }}>
-                <TouchableOpacity style={styles.toStyle}>
+                <TouchableOpacity style={styles.toStyle} onPress={navigation.navigate('RecentlyViewed')}>
                     <Text style={styles.textStyle}>Recently Viewed</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.toStyle}>
+                <TouchableOpacity style={styles.toStyle} onPress={navigation.navigate('Favorite')}>
                     <Text style={styles.textStyle}>Favorite</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.toStyle}>
+                <TouchableOpacity style={styles.toStyle} onPress={navigation.navigate('Demo')}>
                     <Text style={styles.textStyle}>DEMO</Text>
                 </TouchableOpacity>
 
