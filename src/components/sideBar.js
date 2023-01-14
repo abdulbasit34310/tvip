@@ -22,28 +22,28 @@ export default function sideBar({ navigation, route }) {
                     justifyContent: 'center',
                     alignItems: 'center',
                 }}>
-                    <TouchableOpacity onPress={navigation.navigate('LiveTV')} style={styles.customDivider}><Image source={TVImage}></Image><Text style={styles.textStyle}>Live TV</Text></TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate("LiveTV")} style={styles.customDivider}><Image source={TVImage}></Image><Text style={styles.textStyle}>Live TV</Text></TouchableOpacity>
                 </View>
                 <View style={{
                     justifyContent: 'center',
                     alignItems: 'center',
                 }}>
-                    <TouchableOpacity onPress={navigation.navigate('Movies')} style={styles.customDivider}><Image source={MovieImage}></Image><Text style={styles.textStyle}>Movies</Text></TouchableOpacity></View>
+                    <TouchableOpacity onPress={() => navigation.navigate("Movies")} style={styles.customDivider}><Image source={MovieImage}></Image><Text style={styles.textStyle}>Movies</Text></TouchableOpacity></View>
                 <View style={{
                     justifyContent: 'center',
                     alignItems: 'center',
                 }}>
-                    <TouchableOpacity onPress={navigation.navigate('Series')} style={styles.customDivider}><Image source={SeriesImage}></Image><Text style={styles.textStyle}>Series</Text></TouchableOpacity></View>
+                    <TouchableOpacity onPress={() => navigation.navigate("Series")} style={styles.customDivider}><Image source={SeriesImage}></Image><Text style={styles.textStyle}>Series</Text></TouchableOpacity></View>
                 <View style={{
                     justifyContent: 'center',
                     alignItems: 'center',
                 }}>
-                    <TouchableOpacity onPress={navigation.navigate('SportsGuide')} style={styles.customDivider}><Image source={BaseballImage}></Image><Text style={styles.textStyle}>Sports Guide</Text></TouchableOpacity></View>
+                    <TouchableOpacity onPress={() => navigation.navigate("SportsGuide")} style={styles.customDivider}><Image source={BaseballImage}></Image><Text style={styles.textStyle}>Sports Guide</Text></TouchableOpacity></View>
                 <View style={{
                     justifyContent: 'center',
                     alignItems: 'center',
                 }}>
-                    <TouchableOpacity onPress={navigation.navigate('Settings')} style={styles.customDivider}><Image source={SettingIcon}></Image><Text style={styles.textStyle}>Settings</Text></TouchableOpacity></View>
+                    <TouchableOpacity onPress={() => navigation.navigate("Settings")} style={styles.customDivider}><Image source={SettingIcon}></Image><Text style={styles.textStyle}>Settings</Text></TouchableOpacity></View>
                 <View style={{
                     justifyContent: 'center',
                     alignItems: 'center',

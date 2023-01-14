@@ -2,6 +2,10 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { Image, ImageBackground, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
+// Components
+import { externalStyles } from "../Style";
+
+// Images Imports
 import BackgroundImage from "../images/imagebackground.png";
 import Main from '../images/mainlogo.png';
 
@@ -15,15 +19,18 @@ export default function Trial({ navigation, route }) {
 
       <View style={{ position: 'absolute', width: '100%', top: 300, backgroundColor: 'rgba(23, 23, 23, 0.8)', height: 90, width: 675, alignSelf: 'center' }}>
         <View style={{ backgroundColor: '#B3232B', paddingVertical: 5, alignItems: 'center' }}>
-          <Text style={styles.textStyle}>Trial...</Text>
+          <Text style={externalStyles.textStyle}>Trial...</Text>
         </View>
         <View style={{ flexDirection: 'row', alignSelf: 'center', alignItems: 'center' }}>
-          <Text style={{ color: 'white', marginRight: 33 }}>Using the following MAC Address  to upload your playlist</Text>
+          <Text style={[externalStyles.textStyle, { marginRight: 33 }]}>
+            Using the following MAC Address  to upload your playlist
+          </Text>
+
           <Text style={{ backgroundColor: '#FF8845', color: 'white', paddingHorizontal: 34, paddingVertical: 4 }}>44:52:G6:9F:75:T9</Text>
         </View>
         <View style={{ flexDirection: 'row', alignSelf: 'center', alignItems: 'center' }}>
           <Text style={{ color: '#F89942', alignSelf: 'center', }}>www. tvipsmartplayer.com</Text>
-          <TouchableOpacity onPress={navigation.navigate('LiveTV')}><Text style={{ backgroundColor: '#FF8845', color: 'white', paddingHorizontal: 15, paddingVertical: 4, }}>OK</Text></TouchableOpacity>
+          <TouchableOpacity onPress={() => { navigation.push("LiveTV") }}><Text style={{ backgroundColor: '#FF8845', color: 'white', paddingHorizontal: 15, paddingVertical: 4, }}>OK</Text></TouchableOpacity>
         </View>
       </View>
     </ImageBackground >
@@ -36,10 +43,5 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
   }, textStyle: {
     color: '#FFFFFF',
-  }, loadingView: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 10,
-    paddingHorizontal: 10,
   },
 });

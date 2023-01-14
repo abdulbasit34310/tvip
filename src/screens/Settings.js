@@ -33,14 +33,14 @@ export default function Settings({ navigation, route }) {
 
                         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                             <View style={{ width: '50%', }}>
-                                <TouchableOpacity style={styles.customDivider} onPress={navigation.navigate('AccountInformation')}>
+                                <TouchableOpacity style={styles.customDivider} onPress={() => navigation.navigate('AccountInformation')}>
                                     <MaterialCommunityIcons name={'account-circle-outline'} color={'white'} size={26} />
                                     <Text style={styles.textStyle}>Account Information</Text>
                                 </TouchableOpacity>
                             </View>
 
                             <View style={{ width: '50%' }}>
-                                <TouchableOpacity style={styles.customDivider} onPress={navigation.navigate('ShowSeriesCategories')}>
+                                <TouchableOpacity style={styles.customDivider} onPress={() => navigation.navigate('ShowSeriesCategories')}>
                                     <Image source={MonitorImage}></Image>
                                     <Text style={styles.textStyle}>Show Series Catagories</Text>
                                 </TouchableOpacity>
@@ -49,14 +49,14 @@ export default function Settings({ navigation, route }) {
 
                         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                             <View style={{ width: '50%' }}>
-                                <TouchableOpacity style={styles.customDivider} onPress={navigation.navigate('ParentalControl')}>
+                                <TouchableOpacity style={styles.customDivider} onPress={() => navigation.navigate('ParentalControl')}>
                                     <Image source={LockImage}></Image>
                                     <Text style={styles.textStyle}>Parental Control</Text>
                                 </TouchableOpacity>
                             </View>
 
                             <View style={{ width: '50%' }}>
-                                <TouchableOpacity style={styles.customDivider} onPress={navigation.navigate('Theme')}>
+                                <TouchableOpacity style={styles.customDivider} onPress={() => navigation.navigate('Theme')}>
                                     <AntDesign name={'areachart'} color={'white'} size={23} />
                                     <Text style={styles.textStyle}>Theme</Text>
                                 </TouchableOpacity>
@@ -66,7 +66,7 @@ export default function Settings({ navigation, route }) {
 
                         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                             <View style={{ width: '50%' }}>
-                                <TouchableOpacity style={styles.customDivider} onPress={navigation.navigate('ShowLiveCategories')}>
+                                <TouchableOpacity style={styles.customDivider} onPress={() => navigation.navigate('ShowLiveCategories')}>
                                     <Image source={PlayerImage}></Image>
                                     <Text style={styles.textStyle}>Show Live Categories</Text>
                                 </TouchableOpacity>
@@ -82,13 +82,13 @@ export default function Settings({ navigation, route }) {
 
                         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                             <View style={{ width: '50%' }}>
-                                <TouchableOpacity style={styles.customDivider} onPress={navigation.navigate('ShowVodCategories')}>
+                                <TouchableOpacity style={styles.customDivider} onPress={() => navigation.navigate('ShowVodCategories')}>
                                     <MaterialCommunityIcons name={'filmstrip'} color={'white'} size={24} />
                                     <Text style={styles.textStyle}>Show Vod Categories</Text>
                                 </TouchableOpacity>
                             </View>
                             <View style={{ width: '50%' }}>
-                                <TouchableOpacity style={styles.customDivider} onPress={navigation.navigate('ShowLiveChannel')}>
+                                <TouchableOpacity style={styles.customDivider} onPress={() => navigation.navigate('ShowLiveChannel')}>
                                     <MaterialCommunityIcons name={'sort-alphabetical-ascending'} color={'white'} size={24} />
                                     <Text style={styles.textStyle}>Show Live Channel</Text>
                                 </TouchableOpacity>
