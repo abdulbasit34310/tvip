@@ -10,7 +10,7 @@ const externalStyles = StyleSheet.create({
         height: 57, width: '98%',
         justifyContent: 'space-between', borderRadius: 5,
         marginVertical: 5, marginLeft: 4
-    }
+    }, themeTitle: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginBottom: 22 }
 
 });
 

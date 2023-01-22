@@ -1,8 +1,9 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState, useCallback, useEffect, useRef, useMemo } from 'react';
+import { StyleSheet, AppState, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+import ProgressBar from './src/screens/ProgressBar';
 import AccountInformation from './src/screens/AccountInformation';
 import Demo from './src/screens/Demo';
 import DemoChannel from './src/screens/DemoChannel';
@@ -12,8 +13,7 @@ import LastScreen from './src/screens/LastScreen';
 import LiveTV from './src/screens/LiveTV';
 import Movies from './src/screens/Movies';
 import ParentalControl from './src/screens/ParentalControl';
-import ProgressBar from './src/screens/ProgressBar';
-import RecentlyViewed from './src/screens/RecentlyViewed';
+import Home from './src/screens/Home';
 import Series from './src/screens/Series';
 import Settings from './src/screens/Settings';
 import ShowLiveCategories from './src/screens/ShowLiveCategories';
@@ -30,19 +30,33 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
   // const [index, setIndex] = React.useState()
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 10000);
+  }, []);
+
+  if (isLoading) {
+    return (
+
+      <ProgressBar />
+
+    );
+  }
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Trial"
+      <Stack.Navigator initialRouteName="Home"
         headerMode="none">
-        <Stack.Screen options={{ headerShown: false, }} name="Trial" component={Trial} />
 
+        <Stack.Screen options={{ headerShown: false, }} name="Trial" component={Trial} />
         <Stack.Screen options={{ headerShown: false, }} name="LiveTV" component={LiveTV} />
         <Stack.Screen options={{ headerShown: false, }} name="Movies" component={Movies} />
         <Stack.Screen options={{ headerShown: false, }} name="Series" component={Series} />
         <Stack.Screen options={{ headerShown: false, }} name="SportsGuide" component={SportsGuide} />
         <Stack.Screen options={{ headerShown: false, }} name="Settings" component={Settings} />
-
-
         <Stack.Screen options={{ headerShown: false, }} name="AccountInformation" component={AccountInformation} />
         <Stack.Screen options={{ headerShown: false, }} name="Demo" component={Demo} />
         <Stack.Screen options={{ headerShown: false, }} name="DemoChannel" component={DemoChannel} />
@@ -50,8 +64,7 @@ export default function App() {
         <Stack.Screen options={{ headerShown: false, }} name="Favorite" component={Favorite} />
         <Stack.Screen options={{ headerShown: false, }} name="LastScreen" component={LastScreen} />
         <Stack.Screen options={{ headerShown: false, }} name="ParentalControl" component={ParentalControl} />
-        <Stack.Screen options={{ headerShown: false, }} name="ProgressBar" component={ProgressBar} />
-        <Stack.Screen options={{ headerShown: false, }} name="RecentlyViewed" component={RecentlyViewed} />
+        <Stack.Screen options={{ headerShown: false, }} name="Home" component={Home} />
         <Stack.Screen options={{ headerShown: false, }} name="ShowLiveCategories" component={ShowLiveCategories} />
         <Stack.Screen options={{ headerShown: false, }} name="ShowSeriesCategories" component={ShowSeriesCategories} />
         <Stack.Screen options={{ headerShown: false, }} name="ShowVodCategories" component={ShowVodCategories} />

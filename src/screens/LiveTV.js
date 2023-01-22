@@ -1,244 +1,158 @@
-import { Ionicons } from '@expo/vector-icons';
+import { Octicons } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { Image, ImageBackground, ScrollView, StyleSheet, Text, View } from 'react-native';
+import React, { useEffect, useRef, useState } from 'react';
+import { Animated, Image, ImageBackground, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import SearchBar from '../components/searchBar';
-import SideBar from '../components/sideBar';
-import ChannelImage from '../images/channelpic.png';
-import EliteImage from '../images/elite.png';
+import SideBar2 from '../components/sideBar2';
+import AnimalPlanet from '../images/animalplanet.png';
+import Heart from '../images/heart.png';
 import BackgroundImage from "../images/imagebackground.png";
 
 export default function LiveTV({ navigation, route }) {
-  return (
-    <ImageBackground source={BackgroundImage} style={styles.container}>
-      <StatusBar style="hide" />
-      <View style={{ flexDirection: 'row' }}>
-        <View style={{ width: '20%' }}>
-          <SideBar navigation={navigation} />
-        </View>
+    const [isHearted, setIsHearted] = useState(false);
+    const lastTap = useRef(0);
+    const isAnimating = useRef(false);
+    const animatedValue = useRef(new Animated.Value(0)).current;
 
-        <View style={{ width: '80%', }}>
-          <SearchBar />
-          <View style={{ paddingHorizontal: 15, paddingBottom: 125 }}>
-            <ScrollView>
-              <View style={{ height: '20%' }}>
-                <View style={styles.headingStyle}>
-                  <Text style={styles.headingText}>Favourite Live TV</Text>
+    useEffect(() => {
+        if (isHearted) {
+            Animated.timing(animatedValue, {
+                toValue: 1,
+                duration: 1000,
+                useNativeDriver: true,
+            }).start(() => (isAnimating.current = false));
+        } else {
+            animatedValue.setValue(0);
+            isAnimating.current = false;
+        }
+    }, [animatedValue, isHearted]);
+
+    const heartAnimation = {
+        transform: [
+            {
+                scale: animatedValue.interpolate({
+                    inputRange: [0, 0.1, 0.8, 1],
+                    outputRange: [0, 2, 2, 1],
+                }),
+            },
+            {
+                translateY: animatedValue.interpolate({
+                    inputRange: [0, 0.1, 0.8, 1],
+                    outputRange: [0, -40, -40, 1],
+                }),
+            },
+        ],
+    };
+    const heartCircleAnimation = {
+        opacity: animatedValue,
+    };
+
+    return (
+        <ImageBackground source={BackgroundImage} style={styles.container}>
+            <StatusBar style="hide" />
+            <View>
+                <View style={{ flexDirection: 'row' }}>
+                    <View style={{ width: '20%' }}>
+                        <SideBar2 navigation={navigation} />
+                    </View>
+
+                    <View style={{ width: '80%', }}>
+                        <View style={{ height: '15%' }}>
+                            <SearchBar />
+                        </View>
+                        <View style={{ height: '85%', padding: 20 }}>
+
+                            <View style={{ backgroundColor: 'rgba(139, 139, 139, 0.4)', flexDirection: 'row', height: 42, width: '100%', borderRadius: 5 }}>
+
+                                <View style={{
+                                    backgroundColor: '#AB4221', height: '100%', width: 40, justifyContent: 'center',
+                                    alignItems: 'center', borderRadius: 5
+                                }}>
+                                    <Text style={styles.textStyle}>1</Text>
+                                </View>
+
+                                <TouchableOpacity onPress={() => {navigation.push("DemoChannel")}}>
+                                    <View style={{
+                                        flexDirection: 'row', justifyContent: 'space-between',
+                                        alignItems: 'center', paddingHorizontal: 13, paddingVertical: 5
+                                    }}>
+
+                                        <Image source={AnimalPlanet} />
+                                        <Text style={[styles.textStyle, { marginLeft: 15 }]}>Animal Planet</Text>
+                                    </View>
+                                </TouchableOpacity>
+
+                                <View style={styles.toHeart}>
+                                    <TouchableOpacity
+                                        activeOpacity={0.7}
+                                        onPress={() => {
+                                            const now = Date.now();
+                                            const DELAY = 300;
+                                            if (!isAnimating.current) {
+                                                setIsHearted(!isHearted);
+                                                isAnimating.current = true;
+                                            }
+                                        }}>
+                                        <Octicons name={'heart'} size={22} color={'#858585'} />
+                                        {isHearted && (
+                                            <View style={styles.heartContainer}>
+                                                <Animated.View style={[styles.heartCircle, heartCircleAnimation]} />
+                                                <Animated.Image
+                                                    style={[styles.heartIcon, heartAnimation]}
+                                                    source={Heart}
+                                                />
+                                            </View>
+                                        )}
+                                    </TouchableOpacity>
+                                </View>
+
+                            </View>
+                        </View>
+                    </View>
                 </View>
-
-                <View style={{ flexDirection: 'row', alignItems: 'center', height: 80, borderRadius: 10, backgroundColor: 'rgba(78, 78, 78, 0.5)' }}>
-                  <View style={[styles.navigationIconStyle, { borderTopLeftRadius: 10, borderBottomLeftRadius: 10, }]}>
-                    <Ionicons name={'chevron-back'} size={32} color={'white'} />
-                  </View>
-
-                  <ScrollView horizontal style={{}}>
-                    <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', width: '18%', }}>
-                      <Image source={ChannelImage} />
-                      <Text style={{ color: 'white', paddingLeft: 15 }}>HBO</Text>
-                    </View>
-
-                    <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', width: '18%', }}>
-                      <Image source={ChannelImage} />
-                      <Text style={{ color: 'white', paddingLeft: 15 }}>HBO</Text>
-                    </View>
-                    <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', width: '18%', }}>
-                      <Image source={ChannelImage} />
-                      <Text style={{ color: 'white', paddingLeft: 15 }}>HBO</Text>
-                    </View>
-                    <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', width: '18%', }}>
-                      <Image source={ChannelImage} />
-                      <Text style={{ color: 'white', paddingLeft: 15 }}>HBO</Text>
-                    </View>
-                    <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', width: '18%', }}>
-                      <Image source={ChannelImage} />
-                      <Text style={{ color: 'white', paddingLeft: 15 }}>HBO</Text>
-                    </View>
-                    <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', width: '18%', }}>
-                      <Image source={ChannelImage} />
-                      <Text style={{ color: 'white', paddingLeft: 15 }}>HBO</Text>
-                    </View>
-                    <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', width: '18%', }}>
-                      <Image source={ChannelImage} />
-                      <Text style={{ color: 'white', paddingLeft: 15 }}>HBO</Text>
-                    </View>
-                    <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', width: '18%', }}>
-                      <Image source={ChannelImage} />
-                      <Text style={{ color: 'white', paddingLeft: 15 }}>HBO</Text>
-                    </View>
-                  </ScrollView>
-
-                  <View style={[styles.navigationIconStyle, { borderTopRightRadius: 10, borderBottomRightRadius: 10, }]}>
-                    <Ionicons name={'chevron-forward'} size={32} color={'white'} />
-                  </View>
-                </View>
-              </View>
-
-              <View style={{ paddingTop: 10, height: '40%' }}>
-                <View style={styles.headingStyle}>
-                  <Text style={styles.headingText}>Latest Movies</Text>
-                </View>
-                <View style={{ flexDirection: 'row', alignItems: 'center', height: 180, borderRadius: 10, backgroundColor: 'rgba(78, 78, 78, 0.5)' }}>
-
-                  <View style={[styles.navigationIconStyle, { borderTopLeftRadius: 10, borderBottomLeftRadius: 10, }]}>
-                    <Ionicons name={'chevron-back'} size={32} color={'white'} />
-                  </View>
-
-                  <ScrollView horizontal style={{}}>
-
-                    <View style={{ backgroundColor: 'black', marginRight: 4, }}>
-                      <Image source={EliteImage}></Image>
-                      <View>
-                        <Text style={styles.titleStyle}>Elite</Text>
-                      </View>
-                    </View>
-
-                    <View style={{ backgroundColor: 'black', marginRight: 4, }}>
-                      <Image source={EliteImage}></Image>
-                      <View>
-                        <Text style={styles.titleStyle}>Elite</Text>
-                      </View>
-                    </View>
-
-                    <View style={{ backgroundColor: 'black', marginRight: 4, }}>
-                      <Image source={EliteImage}></Image>
-                      <View>
-                        <Text style={styles.titleStyle}>Elite</Text>
-                      </View>
-                    </View>
-
-                    <View style={{ backgroundColor: 'black', marginRight: 4, }}>
-                      <Image source={EliteImage}></Image>
-                      <View>
-                        <Text style={styles.titleStyle}>Elite</Text>
-                      </View>
-                    </View>
-
-                  </ScrollView>
-                  <View style={[styles.navigationIconStyle, { borderTopRightRadius: 10, borderBottomRightRadius: 10, }]}>
-                    <Ionicons name={'chevron-forward'} size={32} color={'white'} />
-                  </View>
-                </View>
-              </View>
-
-              <View style={{ paddingTop: 10, height: '40%' }}>
-                <View style={styles.headingStyle}>
-                  <Text style={styles.headingText}>Latest Series</Text>
-                </View>
-
-                <View style={{ flexDirection: 'row', alignItems: 'center', height: 180, borderRadius: 10, backgroundColor: 'rgba(78, 78, 78, 0.5)' }}>
-
-                  <View style={[styles.navigationIconStyle, { borderTopLeftRadius: 10, borderBottomLeftRadius: 10, }]}>
-                    <Ionicons name={'chevron-back'} size={32} color={'white'} />
-                  </View>
-
-                  <ScrollView horizontal>
-                    <View style={{
-                      backgroundColor: 'black', marginRight: 4, borderRadius: 9, width: 116,
-                      height: 157,
-                    }}>
-                      <Image source={EliteImage} ></Image>
-                      <View>
-                        <Text style={styles.titleStyle}>Elite</Text>
-                      </View>
-                    </View>
-                    <View style={{
-                      backgroundColor: 'black', marginRight: 4, borderRadius: 9, width: 116,
-                      height: 157,
-                    }}>
-                      <Image source={EliteImage}></Image>
-                      <View>
-                        <Text style={styles.titleStyle}>Elite</Text>
-                      </View>
-                    </View>
-                    <View style={{
-                      backgroundColor: 'black', marginRight: 4, borderRadius: 9, width: 116,
-                      height: 157,
-                    }}>
-                      <Image source={EliteImage}></Image>
-                      <View>
-                        <Text style={styles.titleStyle}>Elite</Text>
-                      </View>
-                    </View>
-                    <View style={{
-                      backgroundColor: 'black', marginRight: 4, borderRadius: 9, width: 116,
-                      height: 157,
-                    }}>
-                      <Image source={EliteImage}></Image>
-                      <View>
-                        <Text style={styles.titleStyle}>Elite</Text>
-                      </View>
-                    </View>
-
-
-                  </ScrollView>
-                  <View style={[styles.navigationIconStyle, { borderTopRightRadius: 10, borderBottomRightRadius: 10, }]}>
-                    <Ionicons name={'chevron-forward'} size={32} color={'white'} />
-                  </View>
-                </View>
-              </View>
-            </ScrollView>
-          </View>
-        </View>
-      </View>
-    </ImageBackground >
-  );
+            </View>
+        </ImageBackground>
+    );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'black', marginRight: 4,
-  },
-  headingStyle: { backgroundColor: '#B74424', paddingHorizontal: 15, paddingVertical: 3, flexDirection: 'row', alignItems: 'center', borderRadius: 5, height: 28 },
-  headingText: { color: '#FFFFFF', marginLeft: 9, fontSize: 14 },
-  iconStyle: {
-    position: 'absolute',
-    left: '4.42%',
-    right: '93.8%',
-    top: '1.93%',
-    bottom: '96.67%',
-  },
-  imageStyle: {
-    width: 116,
-    height: 106,
-  },
-  action: {
-    flexDirection: "row",
-    paddingBottom: 5,
-  },
-  ti: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  customDivider: {
-    width: '100%',
-    paddingVertical: 10,
-
-  },
-  navigationIconStyle: {
-    paddingHorizontal: 4,
-    justifyContent: 'center'
-  }, imageStyle: {
-    width: 50,
-    height: 50,
-  },
-  action: {
-    flexDirection: "row",
-    paddingBottom: 5,
-  },
-  ti: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  customDivider: {
-    width: '100%',
-    paddingVertical: 10,
-
-  }, titleStyle: {
-    color: '#FFFFFF',
-    fontSize: 14,
-    alignSelf: 'center',
-    paddingVertical: 15
-  }
+    container: {
+        flex: 1,
+        backgroundColor: 'black',
+    }, textStyle: {
+        color: 'white',
+    },
+    toHeart: {
+        position: 'absolute',
+        right: 20,
+        bottom: 10
+    },
+    heartContainer: {
+        position: 'absolute',
+        width: 24,
+        height: 24,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    heartCircle: {
+        width: 38,
+        height: 38,
+        ...Platform.select({
+            ios: {
+                shadowColor: 'grey',
+                shadowOpacity: 1,
+                shadowRadius: 1,
+                shadowOffset: {
+                    width: 0.5,
+                    height: 0.5,
+                },
+            },
+        }),
+    },
+    heartIcon: {
+        position: 'absolute',
+        width: 24,
+        height: 24,
+    },
 });

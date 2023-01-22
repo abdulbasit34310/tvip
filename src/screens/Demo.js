@@ -63,47 +63,49 @@ export default function Demo({ navigation, route }) {
                         </View>
                         <View style={{ height: '85%', padding: 20 }}>
 
-                            <View style={{ backgroundColor: 'rgba(139, 139, 139, 0.4)', flexDirection: 'row', height: 40, width: '100%' }}>
+                            <View style={{ backgroundColor: 'rgba(139, 139, 139, 0.4)', flexDirection: 'row', height: 42, width: '100%', borderRadius: 5 }}>
 
                                 <View style={{
                                     backgroundColor: '#AB4221', height: '100%', width: 40, justifyContent: 'center',
-                                    alignItems: 'center',
+                                    alignItems: 'center', borderRadius: 5
                                 }}>
                                     <Text style={styles.textStyle}>1</Text>
                                 </View>
 
-                                <View style={{
-                                    flexDirection: 'row', justifyContent: 'space-between',
-                                    alignItems: 'center', paddingHorizontal: 13, paddingVertical: 5
-                                }}>
-                                    <Image source={AnimalPlanet} />
-                                    <Text style={[styles.textStyle, { marginLeft: 15 }]}>Animal Planet</Text>
-                                </View>
-
-
-                                <TouchableOpacity
-                                    activeOpacity={0.7}
-                                    style={styles.toHeart}
-                                    onPress={() => {
-                                        const now = Date.now();
-                                        const DELAY = 300;
-                                        if (!isAnimating.current) {
-                                            setIsHearted(!isHearted);
-                                            isAnimating.current = true;
-                                        }
+                                <TouchableOpacity onPress={() => {navigation.push("DemoChannel")}}>
+                                    <View style={{
+                                        flexDirection: 'row', justifyContent: 'space-between',
+                                        alignItems: 'center', paddingHorizontal: 13, paddingVertical: 5
                                     }}>
-                                    <Octicons name={'heart'} size={22} color={'#858585'} />
-                                    {isHearted && (
-                                        <View style={styles.heartContainer}>
-                                            <Animated.View style={[styles.heartCircle, heartCircleAnimation]} />
-                                            <Animated.Image
-                                                style={[styles.heartIcon, heartAnimation]}
-                                                source={Heart}
-                                            />
-                                        </View>
-                                    )}
+
+                                        <Image source={AnimalPlanet} />
+                                        <Text style={[styles.textStyle, { marginLeft: 15 }]}>Animal Planet</Text>
+                                    </View>
                                 </TouchableOpacity>
 
+                                <View style={styles.toHeart}>
+                                    <TouchableOpacity
+                                        activeOpacity={0.7}
+                                        onPress={() => {
+                                            const now = Date.now();
+                                            const DELAY = 300;
+                                            if (!isAnimating.current) {
+                                                setIsHearted(!isHearted);
+                                                isAnimating.current = true;
+                                            }
+                                        }}>
+                                        <Octicons name={'heart'} size={22} color={'#858585'} />
+                                        {isHearted && (
+                                            <View style={styles.heartContainer}>
+                                                <Animated.View style={[styles.heartCircle, heartCircleAnimation]} />
+                                                <Animated.Image
+                                                    style={[styles.heartIcon, heartAnimation]}
+                                                    source={Heart}
+                                                />
+                                            </View>
+                                        )}
+                                    </TouchableOpacity>
+                                </View>
 
                             </View>
                         </View>
@@ -122,9 +124,9 @@ const styles = StyleSheet.create({
         color: 'white',
     },
     toHeart: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexDirection: 'row-reverse'
+        position: 'absolute',
+        right: 20,
+        bottom: 10
     },
     heartContainer: {
         position: 'absolute',
@@ -134,8 +136,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     heartCircle: {
-        width: 36,
-        height: 36,
+        width: 38,
+        height: 38,
         ...Platform.select({
             ios: {
                 shadowColor: 'grey',

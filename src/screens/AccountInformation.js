@@ -19,7 +19,7 @@ export default function AccountInformation({ navigation, route }) {
                 <View style={{ backgroundColor: '#B74424' }}>
                     <View style={{ padding: 14, flexDirection: 'row', alignItems: 'center' }}>
                         <Image source={SettingIcon}></Image>
-                        <Text style={{ color: '#FFFFFF', marginLeft: 9, fontSize: 16 }}>Settings v Account Information</Text>
+                        <Text style={{ color: '#FFFFFF', marginLeft: 9, fontSize: 16 }}>Settings > Account Information</Text>
                     </View>
                 </View>
 

@@ -28,7 +28,7 @@ export default function Movies({ navigation, route }) {
               </View>
             </View>
 
-            <ScrollView style={{ backgroundColor: '#4E4E4E80', height: '55%', padding: "4%" }}>
+            <ScrollView style={{ backgroundColor: '#4E4E4E80', height: '55%', padding: "4%" }} showsVerticalScrollIndicator={false}>
 
               <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingBottom: '3%', }}>
 

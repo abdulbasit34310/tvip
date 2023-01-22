@@ -88,9 +88,9 @@ export default function Settings({ navigation, route }) {
                                 </TouchableOpacity>
                             </View>
                             <View style={{ width: '50%' }}>
-                                <TouchableOpacity style={styles.customDivider} onPress={() => navigation.navigate('ShowLiveChannel')}>
+                                <TouchableOpacity style={styles.customDivider} onPress={() => navigation.navigate('SortLiveChannel')}>
                                     <MaterialCommunityIcons name={'sort-alphabetical-ascending'} color={'white'} size={24} />
-                                    <Text style={styles.textStyle}>Show Live Channel</Text>
+                                    <Text style={styles.textStyle}>Sort Live Channel</Text>
                                 </TouchableOpacity>
                             </View>
 

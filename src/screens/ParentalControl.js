@@ -19,7 +19,7 @@ export default function ParentalControl({ navigation, route }) {
                 <View style={{ backgroundColor: '#B74424' }}>
                     <View style={{ padding: 14, flexDirection: 'row', alignItems: 'center' }}>
                         <Image source={SettingIcon}></Image>
-                        <Text style={{ color: '#FFFFFF', marginLeft: 9, fontSize: 16 }}>Settings v Parental Control</Text>
+                        <Text style={{ color: '#FFFFFF', marginLeft: 9, fontSize: 16 }}>Settings > Parental Control</Text>
                     </View>
                 </View>
 

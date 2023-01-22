@@ -13,20 +13,20 @@ export default function sideBar({ navigation, route }) {
             </View>
 
             <View style={{ backgroundColor: 'rgba(21, 21, 21, 0.5)', height: '85%', width: '100%', paddingHorizontal: 10, }}>
-                <TouchableOpacity style={styles.toStyle} onPress={navigation.navigate('RecentlyViewed')}>
+                <TouchableOpacity style={styles.toStyle} onPress={() => navigation.navigate('LiveTV')}>
                     <Text style={styles.textStyle}>Recently Viewed</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.toStyle} onPress={navigation.navigate('Favorite')}>
+                <TouchableOpacity style={styles.toStyle} onPress={() => navigation.navigate('Favorite')}>
                     <Text style={styles.textStyle}>Favorite</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.toStyle} onPress={navigation.navigate('Demo')}>
+                <TouchableOpacity style={styles.toStyle} onPress={() => navigation.navigate('Demo')}>
                     <Text style={styles.textStyle}>DEMO</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.toStyle}>
-                    <MaterialCommunityIcons name={'home'} size={22} color={'#AB4221'} />
+                <TouchableOpacity style={styles.toStyle} onPress={() => navigation.navigate('Home')}>
+                    <MaterialCommunityIcons name={'home'} size={22} color={'#AB4221'}  />
                 </TouchableOpacity>
             </View>
         </View>
@@ -66,6 +66,7 @@ const styles = StyleSheet.create({
         width: '100%',
         paddingVertical: 10,
         alignItems: 'center',
-        height: '15%'
+        height: '15%',
+        justifyContent: 'center'
     }
 });

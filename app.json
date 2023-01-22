@@ -5,7 +5,12 @@
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "6284dbf0-24a6-4e39-8176-8cc82155ad15"
+      }
+    }
   },
   "name": "tvip"
 }
