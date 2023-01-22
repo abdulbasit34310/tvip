@@ -2,7 +2,6 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-
 import NavigationBar from './navigationBar';
 
 export default function sideBar({ navigation, route }) {
@@ -13,7 +12,7 @@ export default function sideBar({ navigation, route }) {
             </View>
 
             <View style={{ backgroundColor: 'rgba(21, 21, 21, 0.5)', height: '85%', width: '100%', paddingHorizontal: 10, }}>
-                <TouchableOpacity style={styles.toStyle} onPress={() => navigation.navigate('LiveTV')}>
+                <TouchableOpacity style={styles.toStyle} onPress={() => navigation.popToTop('LiveTV')}>
                     <Text style={styles.textStyle}>Recently Viewed</Text>
                 </TouchableOpacity>
 
@@ -26,7 +25,7 @@ export default function sideBar({ navigation, route }) {
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.toStyle} onPress={() => navigation.navigate('Home')}>
-                    <MaterialCommunityIcons name={'home'} size={22} color={'#AB4221'}  />
+                    <MaterialCommunityIcons name={'home'} size={22} color={'#AB4221'} />
                 </TouchableOpacity>
             </View>
         </View>
