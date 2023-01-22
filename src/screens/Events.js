@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { Image, ImageBackground, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Image, ImageBackground, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import { externalStyles } from "../Style";
 
@@ -33,19 +33,22 @@ export default function Events({ navigation, route }) {
         </View>
 
         <View style={{ backgroundColor: 'rgba(78, 78, 78, 0.5)', padding: 10, height: '70%', marginHorizontal: 20 }}>
-          <ScrollView>
+          <ScrollView showsVerticalScrollIndicator={false}>
 
             <View style={externalStyles.eventsEnteries}>
-              <View style={{
-                flexDirection: 'row', justifyContent: 'space-between',
-                alignItems: 'center', padding: 5
-              }}>
-                <Image source={HorseImage} style={{ width: 63, height: 50 }} />
-                <View>
-                  <Text style={[externalStyles.textStyle, { marginLeft: 25 }]}>IMB Racing Leapards Town</Text>
-                  <Text style={[externalStyles.textStyle, { marginLeft: 25, fontSize: 12 }]}>Horse Racing</Text>
+              <TouchableOpacity onPress={() => { navigation.push("LastScreen") }}>
+                <View style={{
+                  flexDirection: 'row', justifyContent: 'space-between',
+                  alignItems: 'center', padding: 5
+                }}>
+                  <Image source={HorseImage} style={{ width: 63, height: 50 }} />
+                  <View>
+                    <Text style={[externalStyles.textStyle, { marginLeft: 25 }]}>IMB Racing Leapards Town</Text>
+                    <Text style={[externalStyles.textStyle, { marginLeft: 25, fontSize: 12 }]}>Horse Racing</Text>
+                  </View>
                 </View>
-              </View>
+              </TouchableOpacity>
+
 
               <View>
                 <Text style={[externalStyles.textStyle, { marginRight: 15, marginTop: 10 }]}>12:30 pm</Text>

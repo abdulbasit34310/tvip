@@ -15,7 +15,7 @@ export default function LastScreen({ navigation, route }) {
       <StatusBar hidden />
       <View style={[externalStyles.rowSB, { justifyContent: 'space-between', marginRight: 10 }]}>
         <NavigationBar />
-        <TouchableOpacity style={{ marginTop: 10 }}>
+        <TouchableOpacity style={{ marginTop: 10 }} onPress={() => { navigation.popToTop(); navigation.navigate('Home'); }}>
           <MaterialIcons name={'home'} color={'#AB4221'} size={24} />
         </TouchableOpacity>
       </View>
@@ -23,8 +23,7 @@ export default function LastScreen({ navigation, route }) {
       <View style={{ height: '70%', width: '90%', alignSelf: 'center' }}>
 
         <View style={styles.topTabStyle}>
-          <TouchableOpacity style={{ backgroundColor: '#AB4221', paddingVertical: 10, paddingHorizontal: 15, borderRadius: 5 }}>
-            <Image source={TVImage} /></TouchableOpacity>
+          <Image source={TVImage} />
           <TouchableOpacity>
             <MaterialCommunityIcons name={'heart'} color={'white'} size={22} /></TouchableOpacity>
           <TouchableOpacity>
@@ -40,7 +39,7 @@ export default function LastScreen({ navigation, route }) {
 
 
         <View style={{ backgroundColor: '#202020', padding: 10, marginHorizontal: 20 }}>
-          <ScrollView>
+          <ScrollView showsVerticalScrollIndicator={false}>
             <View style={[externalStyles.rowSB, { height: 100, marginBottom: 10, }]}>
 
               <View style={{ backgroundColor: '#5A5A5A', borderRadius: 5, width: 63 }}>

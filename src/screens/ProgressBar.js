@@ -44,7 +44,7 @@ export default function ProgressBar({ navigation, route }) {
       <View style={{ paddingHorizontal: 33, position: 'absolute', top: 310, }}>
         <View style={styles.loadingView}>
           <Text style={styles.textStyle}>Loading...</Text>
-          <Text style={styles.textStyle}>{Math.trunc(index * 100)}</Text>
+          <Text style={styles.textStyle}>{Math.trunc(index * 100)}%</Text>
         </View>
         <Progress.Bar progress={index} width={675} color={'#FF8845'} unfilledColor={'#101010'} borderColor={'#101010'} animated={true} />
       </View>

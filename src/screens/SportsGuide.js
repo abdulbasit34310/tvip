@@ -29,7 +29,7 @@ export default function SportsGuide({ navigation, route }) {
           <View style={{ backgroundColor: '#4E4E4E80', height: '70%', padding: "5%" }}>
             <View style={{ backgroundColor: 'rgba(78, 78, 78, 0.5)', width: '100%', borderRadius: 5 }}>
 
-              <TouchableOpacity style={styles.ti}>
+              <TouchableOpacity style={styles.ti} onPress={() => {navigation.push("Events")}}>
                 <Image source={BaseballImage}></Image>
                 <Text style={styles.textStyle}>Sports Guide One</Text>
               </TouchableOpacity>
