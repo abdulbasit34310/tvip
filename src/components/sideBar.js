@@ -13,7 +13,7 @@ import TVIP from '../images/tvip_logo.png';
 export default function sideBar({ navigation, route }) {
     return (
         <View style={{ flexDirection: 'column' }}>
-            <View style={{ height: '20%' }}>
+            <View style={{ height: '20%', paddingTop: 5, paddingLeft: 10 }}>
                 <Image source={TVIP}></Image>
             </View>
 
